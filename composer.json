@@ -1,18 +1,18 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "makamuevans/php-smpp",
     "type": "library",
-    "description": ":package_description",
+    "description": "A PHP Packahe for SMPP Client",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "makamuevans",
+        "PhpSmpp"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/makamuevans/PhpSmpp",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Makamu Evans",
+            "email": "makamuevans@gmail.com",
+            "homepage": "https://makamuevans.co.ke",
             "role": "Developer"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            ":vendor\\:package_name\\": "src"
+            "makamuevans\\PhpSmpp\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "makamuevans\\PhpSmpp\\": "tests"
         }
     },
     "scripts": {
