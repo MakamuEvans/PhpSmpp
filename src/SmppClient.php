@@ -7,7 +7,7 @@ use makamuevans\PhpSmpp\connections\TxRx;
 use makamuevans\PhpSmpp\core\BaseSmpp;
 
 
-class PhpSmpp extends BaseSmpp
+class SmppClient extends BaseSmpp
 {
     use TxRx;
 

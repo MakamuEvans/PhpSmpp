@@ -4,14 +4,13 @@ use makamuevans\PhpSmpp\connections\Connection;
 
 require '../vendor/autoload.php';
 
-$client = new \makamuevans\PhpSmpp\PhpSmpp(
+$client = new \makamuevans\PhpSmpp\SmppClient(
     "###",
     9001,
     "###",
     "###"
 );
 $client->openConnection(Connection::CONNECTION_RX);
-$next = false;
 do {
     $result = $client->receive();
     echo "we here........";
@@ -20,10 +19,8 @@ do {
         echo "we here\n\n";
         echo $result->id. "     ".$result->stat;
         echo "\ndone...\n";
-        $next  = true;
-    } else
-        $next = false;
-} while ($next);
+    }
+} while ($result);
 $client->closeConnection();
 
 
