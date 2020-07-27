@@ -40,7 +40,8 @@ abstract class BaseSmpp
 
     private function createSmppInstance(){
         $this->transport =  new \SocketTransport([$this->host], $this->port);
-        $this->transport->setRecvTimeout(1000);
+        $this->transport->setRecvTimeout(5000);
+        $this->transport->setSendTimeout(5000);
         return new \SmppClient($this->transport);
     }
 

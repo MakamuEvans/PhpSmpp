@@ -5,13 +5,13 @@ use makamuevans\PhpSmpp\connections\Connection;
 require '../vendor/autoload.php';
 
 $client = new \makamuevans\PhpSmpp\SmppClient(
-    "host",
-    "port",
-    "user",
-    "pass"
+    "messaging.airtelkenya.com",
+    9001,
+    "bongatechT",
+    "Ecp@4321"
 );
 $client->openConnection(Connection::CONNECTION_TX);
-$client->transmit("22847_NTSA", "254737942177", "hahahaha");
+$client->transmit("22847_NTSA", "254737942177", "HUHuhuhuh");
 /*do {
     $result = $client->receive();
     echo "we here........";
