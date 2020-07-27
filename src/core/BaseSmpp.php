@@ -16,7 +16,15 @@ abstract class BaseSmpp
     protected $port;
     protected $username;
     protected $password;
+
+    /**
+     * @var $transport \SocketTransport
+     */
     protected $transport;
+
+    /**
+     * @var \SmppClient $smpp
+     */
     protected $smpp;
 
     public function __construct(string $host, int $port, string $username, string $password)
@@ -27,12 +35,18 @@ abstract class BaseSmpp
         $this->password = $password;
 
         $this->smpp = $this->createSmppInstance();
+
     }
 
     private function createSmppInstance(){
         $this->transport =  new \SocketTransport([$this->host], $this->port);
-        //$this->transport->setRecvTimeout(10000);
+        $this->transport->setRecvTimeout(1000);
         return new \SmppClient($this->transport);
+    }
+
+    public function debug($status = false){
+        $this->smpp->debug = $status;
+        $this->transport->debug = $status;
     }
 
     public function openConnection(int $type){

@@ -10,9 +10,9 @@ $client = new \makamuevans\PhpSmpp\SmppClient(
     "user",
     "pass"
 );
-$client->openConnection(Connection::CONNECTION_TX);
-$client->transmit("22847_NTSA", "254737942177", "hahahaha");
-/*do {
+$client->openConnection(Connection::CONNECTION_RX);
+//$client->transmit("22847_NTSA", "254737942177", "hahahaha");
+do {
     $result = $client->receive();
     echo "we here........";
     //var_dump($result);
@@ -21,7 +21,7 @@ $client->transmit("22847_NTSA", "254737942177", "hahahaha");
         echo $result->id. "     ".$result->stat;
         echo "\ndone...\n";
     }
-} while ($result);*/
+} while ($result);
 $client->closeConnection();
 
 
