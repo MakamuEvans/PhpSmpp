@@ -27,21 +27,22 @@ abstract class BaseSmpp
      */
     protected $smpp;
 
-    public function __construct(string $host, int $port, string $username, string $password)
+    public function __construct(string $host, int $port, string $username, string $password,
+                                int $receive_timeout = 10000, int $send_timeout = 10000)
     {
         $this->host = $host;
         $this->port = $port;
         $this->username = $username;
         $this->password = $password;
 
-        $this->smpp = $this->createSmppInstance();
+        $this->smpp = $this->createSmppInstance($receive_timeout, $send_timeout);
 
     }
 
-    private function createSmppInstance(){
+    private function createSmppInstance($receive_timeout, $send_timeout){
         $this->transport =  new \SocketTransport([$this->host], $this->port);
-        $this->transport->setRecvTimeout(5000);
-        $this->transport->setSendTimeout(5000);
+        $this->transport->setRecvTimeout($receive_timeout);
+        $this->transport->setSendTimeout($send_timeout);
         return new \SmppClient($this->transport);
     }
 
