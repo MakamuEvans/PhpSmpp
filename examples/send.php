@@ -14,7 +14,8 @@ $client->openConnection(Connection::CONNECTION_TX);
 $client->transmit(
     "address", //replace with valid data
     "phone", //replace with valid data
-    "message" //replace with valid data
+    "message",//replace with valid data
+    SMPP::DATA_CODING_ISO8859_8
 );
 /*do {
     $result = $client->receive();
