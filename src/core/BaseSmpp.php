@@ -68,7 +68,7 @@ abstract class BaseSmpp
     }
 
     protected function prepareData(string $phone, string $sender, string $message){
-        $message = \GsmEncoder::utf8_to_gsm0338($message);
+        //$message = \GsmEncoder::utf8_to_gsm0338($message);
         $sender = new \SmppAddress($sender, \SMPP::TON_ALPHANUMERIC);
         $phone = new \SmppAddress($phone, \SMPP::TON_INTERNATIONAL, \SMPP::NPI_E164);
         return (object)['phone'=>$phone,'sender'=>$sender,'message'=>$message];
